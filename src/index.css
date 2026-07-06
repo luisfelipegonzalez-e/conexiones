@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+  body, html {
+    background-color: white !important;
+    color: black !important;
+    font-family: "Times New Roman", Times, serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #root {
+    display: contents;
+  }
+  /* Hide the main app layout when printing */
+  .print-hidden {
+    display: none !important;
+  }
+  /* Make the print report visible only when printing */
+  .print-only {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  
+  /* Report specific styles */
+  .report-text-blue {
+    color: #000080 !important;
+  }
+  .report-math {
+    font-style: italic;
+    font-family: "Cambria Math", "Times New Roman", serif;
+  }
+}
